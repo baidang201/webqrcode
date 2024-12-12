@@ -1,0 +1,130 @@
+.web-qr-container {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 2147483647;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  pointer-events: auto !important;
+}
+
+.web-qr-favicon-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: white;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 2147483647;
+}
+
+.web-qr-favicon-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.web-qr-favicon-btn img {
+  width: 24px;
+  height: 24px;
+  border-radius: 4px;
+  pointer-events: none;
+}
+
+.web-qr-panel {
+  position: absolute;
+  right: 0;
+  bottom: 60px;
+  background: white;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.15);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  opacity: 0;
+  transform: translateY(20px) scale(0.9);
+  pointer-events: none;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 2147483646;
+}
+
+.web-qr-container.expanded .web-qr-panel {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+
+.web-qr-wrapper {
+  width: 200px;
+  height: 200px;
+  position: relative;
+}
+
+.web-qr-wrapper img {
+  max-width: 100%;
+  height: auto;
+}
+
+.web-qr-title {
+  font-size: 14px;
+  color: #333;
+  text-align: center;
+  max-width: 200px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.web-qr-close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 24px;
+  height: 24px;
+  border-radius: 12px;
+  background: #f5f5f5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 18px;
+  color: #666;
+  transition: all 0.2s ease;
+}
+
+.web-qr-close:hover {
+  background: #eee;
+  color: #333;
+}
+
+@media (prefers-color-scheme: dark) {
+  .web-qr-panel {
+    background: #1c1c1e;
+  }
+  
+  .web-qr-title {
+    color: #fff;
+  }
+  
+  .web-qr-close {
+    background: #2c2c2e;
+    color: #999;
+  }
+  
+  .web-qr-close:hover {
+    background: #3c3c3e;
+    color: #fff;
+  }
+}
+
+/* 确保二维码在暗色模式下可见 */
+#qrcode img {
+  background: white !important;
+  padding: 8px;
+  border-radius: 8px;
+} 
